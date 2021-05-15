@@ -450,7 +450,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 90vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/hero-bg.png") top center;
   background-size: cover;
   position: relative;
   margin-bottom: -200px;
@@ -466,11 +466,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
-  color: #2c4964;
+  color: #f1f7fd;
 }
 
 #hero h2 {
-  color: #2c4964;
+  color: #f1f7fd;
   margin: 10px 0 0 0;
   font-size: 24px;
 }
@@ -1731,8 +1731,100 @@ section {
   transition: 0.3s;
 }
 
+#topbar .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #1977cc;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+
+#topbar .social-links a:hover {
+    background: #1c84e3;
+    color: #fff;
+    text-decoration: none;
+  }
+
 #footer .social-links a:hover {
   background: #1c84e3;
   color: #fff;
   text-decoration: none;
 }
+
+.media.media-news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    padding-bottom: 210px;
+}
+@media (min-width: 768px) {
+    .media.media-news {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1200px) {
+    .media.media-news {
+        padding-bottom: 25px;
+        margin-bottom: 0;
+    }
+}
+.media.media-news .media-body {
+    padding: 20px;
+    box-shadow: 0 22px 28px 0 rgba(0, 0, 0, 0.06);
+    background: #fff;
+    position: absolute;
+    width: 85%;
+    right: 0;
+    bottom: 0;
+}
+@media (min-width: 768px) {
+    .media.media-news .media-body {
+        position: relative;
+        padding: 46.5px 35px;
+        right: 0;
+    }
+}
+@media (min-width: 992px) {
+    .media.media-news .media-body {
+        right: 40px;
+        bottom: 0;
+    }
+}
+@media (min-width: 1200px) {
+    .media.media-news .media-body {
+        position: absolute;
+        right: 35px;
+        width: 60%;
+        padding: 20px;
+    }
+}
+.media.media-news .media-body .media-date {
+    font-family: "Open Sans", sans-serif;
+    color: #848484;
+    margin-bottom: 10px;
+}
+.media.media-news .media-body h5 {
+    font-size: 22px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.media.media-news .media-body h5.small {
+    font-size: 16px;
+}
+.media.media-news .media-body p {
+    font-family: "Open Sans", sans-serif;
+    color: #848484;
+}
+.media.media-news .media-body .common-btn {
+    margin-top: 10px;
+}
+
