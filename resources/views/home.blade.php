@@ -169,50 +169,69 @@
           <p>Vous pouvez commencer par suivre nos formations. Il vous suffit de vous inscrire en remplissant ce présent formulaire </p>
         </div>
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <form action="{{ route('register') }}" method="post" class="contact-form">
+            @if(Session::has('info'))
+            <div class="alert alert-success">
+                <!--<strong>Whoops!</strong> There were some problems with your input.<br><br>-->
+                <ul>
+
+                        <li>{{ Session::get('info') }} :)</li>
+
+                </ul>
+            </div>
+        @endif
+            @csrf
           <div class="form-row">
             <div class="col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" data-rule="minlen:2" data-msg="Veuillez entrer au moins 4 caractères">
-              <div class="validate"></div>
+              <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}" id="name" placeholder="Votre nom" data-rule="minlen:2" data-msg="Veuillez entrer au moins 2 caractères">
+              @if($errors->has('name'))
+                <p style="color: red;" class="text-red">{{ $errors->first('name') }}</p>
+                @endif
             </div>
             <div class="col-md-6 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email" data-rule="email" data-msg="Veuillez entrer une adresse email valide">
-              <div class="validate"></div>
+              <input type="email" class="form-control" name="email" value="{{ $email ?? '' }}" id="email" placeholder="Votre Email" data-rule="email" data-msg="Veuillez entrer une adresse email valide">
+              @if($errors->has('email'))
+                <p style="color: red;" class="text-red">{{ $errors->first('email') }}</p>
+                @endif
             </div>
           </div>
           <div class="form-row">
 
             <div class="col-md-6 form-group">
-              <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Votre prénom" data-rule="minlen:2" data-msg="Veuillez entrer au moins 4 caractères">
-              <div class="validate"></div>
+              <input type="text" name="firstName" class="form-control" value="{{ $firstName ?? '' }}" id="firstName" placeholder="Votre prénom" data-rule="minlen:2" data-msg="Veuillez entrer au moins 2 caractères">
+              @if($errors->has('firstName'))
+                <p style="color: red;" class="text-red">{{ $errors->first('firstName') }}</p>
+                @endif
             </div>
 
             <div class="col-md-6 form-group">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Votre contact " data-rule="minlen:4" data-msg="Veuillez entrer un contact valide">
-              <div class="validate"></div>
+              <input type="tel" class="form-control" name="phone" id="phone"  value="{{ $phone ?? '' }}" placeholder="Votre contact " data-rule="minlen:4" data-msg="Veuillez entrer un contact valide">
+              @if($errors->has('phone'))
+                <p style="color: red;" class="text-red">{{ $errors->first('phone') }}</p>
+                @endif
             </div>
           </div>
           <div class="col-md-6 form-group">
-            <select name="formation" id="formation" class="form-control">
+            <select name="formation" value="{{ old($formation ?? '') }}" id="formation" class="form-control">
               <option value="">Selectionnez la formation</option>
-              <option value="formation 1">Formation en community management</option>
-              <option value="foramtion 2">Formation dans la création des sites web et applications</option>
-              <option value="formation 3">Formation dans le cadrage montage et  vidéo</option>
-              <option value="formation 4">Formation en Graphisme</option>
+              <option value="Formation en community management">Formation en community management</option>
+              <option value="Formation dans la création des sites web et applications">Formation dans la création des sites web et applications</option>
+              <option value="Formation dans le cadrage montage et  vidéo">Formation dans le cadrage montage et  vidéo</option>
+              <option value="Formation en Graphisme">Formation en Graphisme</option>
             </select>
-            <div class="validate"></div>
+            @if($errors->has('formation'))
+                <p style="color: red;" class="text-red">{{ $errors->first('formation') }}</p>
+                @endif
           </div>
 
           <div class="form-group">
             <textarea class="form-control" name="message" rows="3" placeholder="Message (Optional)"></textarea>
-            <div class="validate"></div>
+
           </div>
+          <!--<div class="text-center"><button type="submit">Envoyer</button></div>-->
           <div class="mb-3">
-            <div class="loading">Chargement...</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Votre inscription a été enregistrée avec succès. Vous serez contacter . Merci !</div>
+            <button class="btn btn-primary" type="submit">Publier</button>
           </div>
-          <div class="text-center"><button type="submit">Envoyer</button></div>
         </form>
 
       </div>
@@ -224,7 +243,7 @@
 
         <div class="section-title">
           <h2>Actualités</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Suivez les actualités en temps réels de Bénin Web TV sur notre plateforme </p>
         </div>
 
 
@@ -299,7 +318,7 @@
 
         <div class="section-title">
           <h2>Gallery</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p></p>
         </div>
       </div>
 
@@ -381,7 +400,7 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Quelque soit votre position, vous pouvez se rendre chez nous, sur les locaux de Atalhos Communication en cliquant sur Iténeraire lequel est sur Carte Google ci-dessus</p>
         </div>
       </div>
 
@@ -419,31 +438,40 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{ route('send-message') }}" method="post" role="form">
+              @csrf
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" data-rule="minlen:4" data-msg="Veuillez entrez au moins 4 caractères" />
-                  <div class="validate"></div>
+                  <input type="text" name="name2" class="form-control" id="name" placeholder="Votre nom" required="required" data-rule="minlen:4" data-msg="Veuillez entrez au moins 4 caractères" />
+                  @if($errors->has('name2'))
+                <p style="color: red;" class="text-red">{{ $errors->first('name2') }}</p>
+                @endif
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email" data-rule="email" data-msg="Veuillez une adresse email valide" />
-                  <div class="validate"></div>
+                  <input type="email" class="form-control" name="email2" id="email" placeholder="Votre Email" required="required" data-rule="email" data-msg="Veuillez une adresse email valide" />
+                  @if($errors->has('email2'))
+                <p style="color: red;" class="text-red">{{ $errors->first('email2') }}</p>
+                @endif
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Veuillez entrer au moins 8 caractères pour le sujet" />
-                <div class="validate"></div>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" required="required" data-rule="minlen:4" data-msg="Veuillez entrer au moins 8 caractères pour le sujet" />
+                @if($errors->has('subject'))
+                <p style="color: red;" class="text-red">{{ $errors->first('subject') }}</p>
+                @endif
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please écrire quelque pour nous" placeholder="Message"></textarea>
-                <div class="validate"></div>
+                <textarea class="form-control" name="message2" rows="5" required="required" data-msg="Please écrire quelque pour nous" placeholder="Message"></textarea>
+
               </div>
-              <div class="mb-3">
+              <!--<div class="mb-3">
                 <div class="loading">Chargement...</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Votre message a été envoyé avec succès. Merci!</div>
+              </div>-->
+              <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Envoyer message</button>
               </div>
-              <div class="text-center"><button type="submit">Envoyer Message</button></div>
             </form>
 
           </div>

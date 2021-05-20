@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+Route::post('/send-message', [HomeController::class, 'sendMessage'])->name('send-message');
+
+Route::post('/register', [HomeController::class, 'registerFormation'])->name('register');
+
 
