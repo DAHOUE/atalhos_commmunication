@@ -351,10 +351,10 @@
                       <td>
                         <p>Salut, </p>
                         <p>Une demande ou proposition a été envoyé à Atalhos Communication. Voici le détail : </p>
-                        <p>Nom de la personne :{{ $detailsToAdmin['name2'] }} </p>
-                        <p>Son adresse Email :{{ $detailsToAdmin['email2'] }} </p>
+                        <p>Nom de la personne :{{ $detailsToAdmin['name'] }} </p>
+                        <p>Son adresse Email :{{ $detailsToAdmin['email'] }} </p>
                         <p><strong>Message</strong></p>
-                        <p>{{ $detailsToAdmin['message2'] }} </p>
+                        <p>{{ $detailsToAdmin['message'] }} </p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>

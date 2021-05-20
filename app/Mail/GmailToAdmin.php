@@ -32,7 +32,7 @@ class GmailToAdmin extends Mailable
     {
         return $this->subject("Inscription pour une formation sur la plateforme Atalhos Communication ")
                     ->view('emails.mailToAdmin')
-                    ->from('isaacdahoue1@gmail.com');
+                    ->from('atalhoscommunication@gmail.com');
 
     }
 }

@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function registerFormation(Request $request)
     {
-        $emailAdmin = 'isaacdahoue1@gmail.com';
+        $emailAdmin = 'atalhoscommunication@gmail.com';
         $request->validate(
             [
                 'name' => 'required',
@@ -49,7 +49,7 @@ class HomeController extends Controller
 
     public function sendMessage(Request $request)
     {
-        $emailAdmin = 'isaacdahoue1@gmail.com';
+        $emailAdmin = 'atalhoscommunication@gmail.com';
         $request->validate(
             [
                 'name2' => 'required',

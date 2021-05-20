@@ -31,7 +31,7 @@ class GmailMessageToAdmin extends Mailable
     public function build()
     {
         return $this->subject($this->detailsToAdmin['subject'])
-                    ->from('isaacdahoue1@gmail.com')
+                    ->from('atalhoscommunication@gmail.com')
                     ->view('emails.mailMessageToAdmin');
     }
 }

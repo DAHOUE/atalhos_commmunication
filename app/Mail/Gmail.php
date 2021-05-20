@@ -32,6 +32,6 @@ class Gmail extends Mailable
     {
         return $this->subject('Inscription pour une formation chez Atalhos Communication ')
                     ->view('emails.gmail')
-                    ->from('isaacdahoue1@gmail.com');
+                    ->from('atalhoscommunication@gmail.com');
     }
 }
